@@ -5,9 +5,18 @@ import Tabela from './Tabela';
 
 function App() {
 
+
+  // Objeto produto
+  const produto = {
+    codigo : 0,
+    nome : '',
+    marca : ''
+  }
+
   //UseState
   const [btnCadastrar, setBtnCadastrar] = useState(true);
-  const [produtos, setProdutos] = useState({});
+  const [produtos, setProdutos] = useState([]); //[] simboliza array {} deu erro pagina branca.
+  const [objProduto, setObjProduto] =  useState(produto);
 
   //UseEffect
   useEffect(() =>{
@@ -19,6 +28,7 @@ function App() {
   //Retorno
   return (
     <div>
+      <p>{JSON.stringify(objProduto)}</p>
       <Formulario botao={btnCadastrar}/>
       <Tabela vetor={produtos}/>
     </div>
